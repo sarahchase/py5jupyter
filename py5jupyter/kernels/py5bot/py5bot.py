@@ -27,7 +27,7 @@ import ast as _PY5BOT_ast
 from IPython.display import SVG as _PY5BOT_SVG
 
 import py5_tools
-py5_tools.set_imported_mode(True)
+py5_tools.set_imported_mode(False)
 from py5 import *
 from py5 import _prepare_dynamic_variables as _PY5BOT_PREPARE_DYNAMIC_VARIABLES
 import py5_tools.parsing as _PY5BOT_parsing
