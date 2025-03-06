@@ -112,5 +112,5 @@ class Py5BotApp(IPKernelApp):
     )
 
     def __init__(self, *args, **kwargs):
-        print("Initializing Py5BotApp...")
         super().__init__(*args, **kwargs)
+        print("Initializing Py5BotApp...")
