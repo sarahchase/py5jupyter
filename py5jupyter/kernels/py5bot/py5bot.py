@@ -59,7 +59,7 @@ del functools
 
 
 PY5BOT_CODE = """
-from py5 import reset_py5
+from py5 import *
 _PY5BOT_OUTPUT_ = None
 reset_py5()
 _PY5_NS_ = locals().copy()
