@@ -110,3 +110,7 @@ class Py5BotApp(IPKernelApp):
     exec_lines = List(Unicode(), [py5bot.PY5BOT_CODE_STARTUP]).tag(
         config=True
     )
+
+    def __init__(self, *args, **kwargs):
+        print("Initializing Py5BotApp...")
+        super().__init__(*args, **kwargs)
