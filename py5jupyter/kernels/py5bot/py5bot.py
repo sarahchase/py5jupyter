@@ -21,6 +21,10 @@ import tempfile
 from pathlib import Path
 
 PY5BOT_CODE_STARTUP = """
+import tempfile
+from pathlib import Path
+print("Running startup code...")
+
 import functools
 import ast as _PY5BOT_ast
 
