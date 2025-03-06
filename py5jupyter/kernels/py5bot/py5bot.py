@@ -59,11 +59,21 @@ del functools
 
 
 PY5BOT_CODE = """
+import functools
+import ast as _PY5BOT_ast
+
+from IPython.display import SVG as _PY5BOT_SVG
+
+import py5_tools
+py5_tools.set_imported_mode(True)
 from py5 import *
+from py5 import _prepare_dynamic_variables as _PY5BOT_PREPARE_DYNAMIC_VARIABLES
+import py5_tools.parsing as _PY5BOT_parsing
+
 _PY5BOT_OUTPUT_ = None
 reset_py5()
 _PY5_NS_ = locals().copy()
-_PY5_NS_['size'] = _PY5BOT_altered_size
+_PY5_NS_['size'] = size()
 _PY5BOT_PREPARE_DYNAMIC_VARIABLES(_PY5_NS_, _PY5_NS_)
 
 
