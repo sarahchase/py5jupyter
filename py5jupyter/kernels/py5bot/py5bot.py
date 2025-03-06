@@ -73,7 +73,7 @@ import py5_tools.parsing as _PY5BOT_parsing
 _PY5BOT_OUTPUT_ = None
 reset_py5()
 _PY5_NS_ = locals().copy()
-_PY5_NS_['size'] = size()
+_PY5_NS_['size'] = size(100, 100)
 _PY5BOT_PREPARE_DYNAMIC_VARIABLES(_PY5_NS_, _PY5_NS_)
 
 
