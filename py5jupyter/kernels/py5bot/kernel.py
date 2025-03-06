@@ -107,6 +107,6 @@ class Py5BotApp(IPKernelApp):
         "py5jupyter.kernels.py5bot.Py5BotKernel", klass="ipykernel.kernelbase.Kernel"
     ).tag(config=True)
 
-    exec_lines = List(Unicode(), ["%%python\n" + py5bot.PY5BOT_CODE_STARTUP]).tag(
+    exec_lines = List(Unicode(), [py5bot.PY5BOT_CODE_STARTUP]).tag(
         config=True
     )
