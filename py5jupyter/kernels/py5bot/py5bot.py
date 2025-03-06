@@ -70,6 +70,27 @@ from py5 import *
 from py5 import _prepare_dynamic_variables as _PY5BOT_PREPARE_DYNAMIC_VARIABLES
 import py5_tools.parsing as _PY5BOT_parsing
 
+@functools.wraps(size)
+def _PY5BOT_altered_size(*args):
+    import sys
+    if len(args) == 2:
+        args = *args, HIDDEN
+    elif len(args) >= 3 and isinstance(renderer := args[2], str):
+        renderer_name = {SVG: 'SVG', PDF: 'PDF', DXF: 'DXF', P2D: 'P2D', P3D: 'P3D', HIDDEN: 'HIDDEN', JAVA2D: 'JAVA2D'}.get(renderer, renderer)
+        if renderer in [SVG, PDF]:
+            if not (len(args) >= 4 and isinstance(args[3], str)):
+                print(f'If you want to use the {renderer_name} renderer, the 4th parameter to size() must be a filename to save the {renderer_name} to.')
+                args = *args[:2], HIDDEN, *args[3:]
+        else:
+            renderers = [HIDDEN, JAVA2D] if sys.platform == 'darwin' else [HIDDEN, JAVA2D, P2D, P3D]
+            if renderer not in renderers:
+                print(f'Sorry, py5bot does not support the {renderer_name} renderer' + (' on OSX.' if sys.platform == 'darwin' else '.'), file=sys.stderr)
+                args = *args[:2], HIDDEN, *args[3:]
+            if renderer == JAVA2D:
+                args = *args[:2], HIDDEN, *args[3:]
+    size(*args)
+
+
 _PY5BOT_OUTPUT_ = None
 reset_py5()
 _PY5_NS_ = locals().copy()
@@ -89,7 +110,6 @@ def _py5bot_settings():
             ),
             _PY5_NS_
         )
-
 
 def _py5bot_setup():
     global _PY5BOT_OUTPUT_
