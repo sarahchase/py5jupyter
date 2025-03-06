@@ -37,7 +37,7 @@ import py5_tools.parsing as _PY5BOT_parsing
 def _PY5BOT_altered_size(*args):
     import sys
     if len(args) == 2:
-        args = *args, HIDDEN
+        args = (*args, HIDDEN)
     elif len(args) >= 3 and isinstance(renderer := args[2], str):
         renderer_name = {SVG: 'SVG', PDF: 'PDF', DXF: 'DXF', P2D: 'P2D', P3D: 'P3D', HIDDEN: 'HIDDEN', JAVA2D: 'JAVA2D'}.get(renderer, renderer)
         if renderer in [SVG, PDF]:
