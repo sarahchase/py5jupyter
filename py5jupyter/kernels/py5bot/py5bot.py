@@ -59,8 +59,9 @@ del functools
 
 
 PY5BOT_CODE = """
+from py5 import reset_py
 _PY5BOT_OUTPUT_ = None
-py5.reset_py5()
+reset_py5()
 _PY5_NS_ = locals().copy()
 _PY5_NS_['size'] = _PY5BOT_altered_size
 _PY5BOT_PREPARE_DYNAMIC_VARIABLES(_PY5_NS_, _PY5_NS_)
