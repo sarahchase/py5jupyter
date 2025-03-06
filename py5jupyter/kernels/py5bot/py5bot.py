@@ -43,14 +43,14 @@ def _PY5BOT_altered_size(*args):
         if renderer in [SVG, PDF]:
             if not (len(args) >= 4 and isinstance(args[3], str)):
                 print(f'If you want to use the {renderer_name} renderer, the 4th parameter to size() must be a filename to save the {renderer_name} to.')
-                args = *args[:2], HIDDEN, *args[3:]
+                args = (*args[:2], HIDDEN, *args[3:])
         else:
             renderers = [HIDDEN, JAVA2D] if sys.platform == 'darwin' else [HIDDEN, JAVA2D, P2D, P3D]
             if renderer not in renderers:
                 print(f'Sorry, py5bot does not support the {renderer_name} renderer' + (' on OSX.' if sys.platform == 'darwin' else '.'), file=sys.stderr)
-                args = *args[:2], HIDDEN, *args[3:]
+                args = (*args[:2], HIDDEN, *args[3:])
             if renderer == JAVA2D:
-                args = *args[:2], HIDDEN, *args[3:]
+                args = (*args[:2], HIDDEN, *args[3:])
     size(*args)
 
 
