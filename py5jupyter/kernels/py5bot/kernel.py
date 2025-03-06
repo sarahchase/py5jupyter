@@ -114,3 +114,11 @@ class Py5BotApp(IPKernelApp):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         print("Initializing Py5BotApp...")
+
+    def initialize(self, argv=None):
+        super().initialize(argv)
+        print("Running startup code...")
+        # Execute exec_lines manually
+        for line in self.exec_lines:
+            self.shell.ex(line)  # Execute code using the IPython shell
+        print("Startup code executed.")
